@@ -1,4 +1,5 @@
   Evo Portal Control
 
 
-![evoportal](https://github.com/engrpanda/Evo_Portal_Control/assets/53995355/ed4a24ce-e2db-47fd-8c9c-24a8ab31aa02)
+
+![evo1](https://github.com/engrpanda/Evo_Portal_Control/assets/53995355/cfe17671-ad69-4a82-8835-4cee442c795e)
