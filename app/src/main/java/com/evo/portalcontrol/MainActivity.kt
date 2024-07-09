@@ -9,6 +9,7 @@ import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.evo.portalcontrol.databinding.ActivityMainBinding
+import android.view.View
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,17 +24,44 @@ class MainActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("login_prefs", Context.MODE_PRIVATE)
 
         initViews()
-        loadUrl("https://global-robotmp.orionstar.com/web/portal/#/frame/hmag-rmc/hmag-rmc.rmc/")
     }
 
     private fun initViews() {
-        binding.backButton.setOnClickListener {
-            finish()
+        binding.buttonWebview1.setOnClickListener {
+            supportActionBar?.hide()
+            hideButtons()
+            loadUrl("https://global-robotmp.orionstar.com/web/portal/#/frame/hmag-person/hmag-person.person_corp")
+        }
+
+        binding.buttonWebview2.setOnClickListener {
+            supportActionBar?.hide()
+            hideButtons()
+            loadUrl("https://global-luckimp.orionstar.com/pages/home/home")
+        }
+
+        binding.buttonWebview3.setOnClickListener {
+            supportActionBar?.hide()
+            hideButtons()
+            loadUrl("https://global-luckimp.orionstar.com/pages/navigation/index")
         }
     }
 
+    private fun hideButtons() {
+        binding.buttonWebview1.visibility = View.GONE
+        binding.buttonWebview2.visibility = View.GONE
+        binding.buttonWebview3.visibility = View.GONE
+        binding.webView.visibility = View.VISIBLE
+    }
+
+    private fun showButtons() {
+        binding.buttonWebview1.visibility = View.VISIBLE
+        binding.buttonWebview2.visibility = View.VISIBLE
+        binding.buttonWebview3.visibility = View.VISIBLE
+        binding.webView.visibility = View.GONE
+    }
+
     private fun loadUrl(url: String) {
-        with(binding.webView.settings) {
+        binding.webView.settings.apply {
             javaScriptEnabled = true
             domStorageEnabled = true
             loadWithOverviewMode = true
@@ -42,10 +70,11 @@ class MainActivity : AppCompatActivity() {
             displayZoomControls = false
             userAgentString = "Mozilla/5.0 (Linux; Android 10; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Mobile Safari/537.36"
         }
+
         binding.webView.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                if (url == "https://global-robotmp.orionstar.com/web/portal/#/frame/hmag-rmc/hmag-rmc.rmc/") {
+                if (url == "https://global-robotmp.orionstar.com/web/portal/#/frame/hmag-person/hmag-person.person_corp") {
                     autoFillLoginDetails()
                 }
             }
@@ -55,6 +84,19 @@ class MainActivity : AppCompatActivity() {
             }
         }
         binding.webView.loadUrl(url)
+    }
+
+    override fun onBackPressed() {
+        if (binding.webView.canGoBack()) {
+            binding.webView.goBack()
+        } else {
+            if (binding.webView.visibility == View.VISIBLE) {
+                supportActionBar?.show()
+                showButtons()
+            } else {
+                super.onBackPressed()
+            }
+        }
     }
 
     private fun showToast(message: String) {
