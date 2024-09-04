@@ -1,5 +1,7 @@
-  Evo Portal Control
+Jan MTG Playtest Moxfield
 
 
 
-![evo1](https://github.com/engrpanda/Evo_Portal_Control/assets/53995355/cfe17671-ad69-4a82-8835-4cee442c795e)
+![image](https://github.com/user-attachments/assets/5c0e9c6d-9445-4f09-b63d-18569dae0174)
+
+![image](https://github.com/user-attachments/assets/661d6ea9-76fc-4234-aaa3-4406c4c44604)
