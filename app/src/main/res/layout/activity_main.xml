@@ -12,25 +12,40 @@
 
     <Button
         android:id="@+id/button_webview_1"
-        android:layout_width="130dp"
-        android:layout_height="100dp"
-        android:text="Admin Portal"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hidetsugu and Kairi"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
     <Button
         android:id="@+id/button_webview_2"
-        android:layout_width="130dp"
-        android:layout_height="100dp"
-        android:text="Lucki Portal"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="300dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clavileño, First of the Blessed"
+        android:layout_below="@id/button_webview_1"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
     <Button
         android:id="@+id/button_webview_3"
-        android:layout_width="130dp"
-        android:layout_height="100dp"
-        android:text="Lucki Navigation"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="450dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vihaan, Goldwaker"
+        android:layout_below="@id/button_webview_2"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+
+    <Button
+        android:id="@+id/button_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="back"
+        android:textSize="6dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
 </RelativeLayout>

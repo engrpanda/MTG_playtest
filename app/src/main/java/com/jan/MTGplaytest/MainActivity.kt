@@ -1,4 +1,4 @@
-package com.evo.portalcontrol
+package com.jan.MTGplaytest
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -8,7 +8,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.evo.portalcontrol.databinding.ActivityMainBinding
+import com.jan.MTGplaytest.databinding.ActivityMainBinding
 import android.view.View
 
 class MainActivity : AppCompatActivity() {
@@ -30,19 +30,29 @@ class MainActivity : AppCompatActivity() {
         binding.buttonWebview1.setOnClickListener {
             supportActionBar?.hide()
             hideButtons()
-            loadUrl("https://global-robotmp.orionstar.com/web/portal/#/frame/hmag-person/hmag-person.person_corp")
+            loadUrl("https://www.moxfield.com/decks/Le7BrEI170qgsZTCv8Gw0w/goldfish")
         }
 
         binding.buttonWebview2.setOnClickListener {
             supportActionBar?.hide()
             hideButtons()
-            loadUrl("https://global-luckimp.orionstar.com/pages/home/home")
+            loadUrl("https://www.moxfield.com/decks/3Hn4JcETtkutfuYtjXvyCw/goldfish")
         }
 
         binding.buttonWebview3.setOnClickListener {
             supportActionBar?.hide()
             hideButtons()
-            loadUrl("https://global-luckimp.orionstar.com/pages/navigation/index")
+            loadUrl("https://www.moxfield.com/decks/-cZamv84tE22y_aSgsEPhw/goldfish")
+        }
+
+        // Add listener for the Back button
+        binding.buttonBack.setOnClickListener {
+            if (binding.webView.visibility == View.VISIBLE) {
+                supportActionBar?.show()
+                showButtons()
+            } else {
+                onBackPressed()  // This will handle the default back button action
+            }
         }
     }
 
@@ -50,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         binding.buttonWebview1.visibility = View.GONE
         binding.buttonWebview2.visibility = View.GONE
         binding.buttonWebview3.visibility = View.GONE
+        binding.buttonBack.visibility = View.VISIBLE
         binding.webView.visibility = View.VISIBLE
     }
 
@@ -57,6 +68,7 @@ class MainActivity : AppCompatActivity() {
         binding.buttonWebview1.visibility = View.VISIBLE
         binding.buttonWebview2.visibility = View.VISIBLE
         binding.buttonWebview3.visibility = View.VISIBLE
+        binding.buttonBack.visibility = View.VISIBLE
         binding.webView.visibility = View.GONE
     }
 
@@ -74,9 +86,9 @@ class MainActivity : AppCompatActivity() {
         binding.webView.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                if (url == "https://global-robotmp.orionstar.com/web/portal/#/frame/hmag-person/hmag-person.person_corp") {
-                    autoFillLoginDetails()
-                }
+//                if (url == "https://global-robotmp.orionstar.com/web/portal/#/frame/hmag-person/hmag-person.person_corp") {
+//                    autoFillLoginDetails()
+//                }
             }
 
             override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: android.webkit.WebResourceError?) {

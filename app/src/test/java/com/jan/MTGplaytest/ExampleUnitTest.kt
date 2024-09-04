@@ -1,4 +1,4 @@
-package com.evo.portalcontrol
+package com.jan.MTGplaytest
 
 import org.junit.Test
 

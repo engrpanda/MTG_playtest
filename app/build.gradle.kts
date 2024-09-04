@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.evo.portalcontrol"
+    namespace = "com.jan.MTGplaytest"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.evo.portalcontrol"
+        applicationId = "com.jan.MTGplaytest"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
